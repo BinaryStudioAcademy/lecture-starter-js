@@ -1,11 +1,13 @@
-# stage-2-es6-for-everyone
+# JS for everyone
 
-## Instalation
+## 🏃‍♂️ Simple start
 
-`npm install`
+1. **`npm install`** at the root
+2. **`npm run start`** at the root
+3. open **`http://localhost:9000/`**
 
-`npm run build`
+## 💡 PS
 
-`npm run start`
+The project has a [Prettier](https://prettier.io/) set up, so use it to format the code
 
-open http://localhost:9000/
+## 🤞 Good luck
