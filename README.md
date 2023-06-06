@@ -17,7 +17,7 @@ OR
 
 The project has a [Git Hooks](https://www.atlassian.com/git/tutorials/git-hooks), [Prettier](https://prettier.io/) and [Eslint](https://eslint.org/) set up, to validate your JS code.
 
-## 💡 PS PS
+## 💡 PPS
 
 Please, make sure there are no linter errors in your homework!
 
