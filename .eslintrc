@@ -1,0 +1,24 @@
+{
+    "env": {
+        "browser": true
+    },
+    "extends": ["airbnb", "prettier"],
+    "parserOptions": {
+        "ecmaVersion": 2022,
+        "sourceType": "module"
+    },
+    "plugins": ["prettier"],
+    "rules": {
+        "prettier/prettier": "error",
+        "arrow-body-style": 0
+    },
+    "ignorePatterns": ["node_modules", "dist"],
+    "overrides": [
+        {
+            "files": ["vite.config.js"],
+            "rules": {
+                "import/no-extraneous-dependencies": 0
+            }
+        }
+    ]
+}
