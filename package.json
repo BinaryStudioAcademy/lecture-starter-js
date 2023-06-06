@@ -9,6 +9,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "setup": "npm install && npx simple-git-hooks",
         "dev": "vite --host",
         "build": "vite build",
         "preview": "vite preview",
