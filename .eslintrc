@@ -10,7 +10,10 @@
     "plugins": ["prettier"],
     "rules": {
         "prettier/prettier": "error",
-        "arrow-body-style": 0
+        "arrow-body-style": 0,
+        "no-console": ["error", { "allow": ["warn", "error"] }],
+        "no-underscore-dangle": 0,
+        "no-useless-catch": 0
     },
     "ignorePatterns": ["node_modules", "dist"],
     "overrides": [

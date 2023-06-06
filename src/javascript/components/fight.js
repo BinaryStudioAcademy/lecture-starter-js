@@ -1,19 +1,19 @@
-import { controls } from '../../constants/controls';
+import controls from '../../constants/controls';
 
 export async function fight(firstFighter, secondFighter) {
-  return new Promise((resolve) => {
-    // resolve the promise with the winner when fight is over
-  });
+    return new Promise(resolve => {
+        // resolve the promise with the winner when fight is over
+    });
 }
 
 export function getDamage(attacker, defender) {
-  // return damage
+    // return damage
 }
 
 export function getHitPower(fighter) {
-  // return hit power
+    // return hit power
 }
 
 export function getBlockPower(fighter) {
-  // return block power
+    // return block power
 }

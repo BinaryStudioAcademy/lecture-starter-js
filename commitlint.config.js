@@ -15,8 +15,8 @@ const configuration = {
     parserPreset: {
         parserOpts: {
             headerPattern: COMMIT_MESSAGE_REGEXP,
-            headerCorrespondence: ['modifier', 'description'],
-        },
+            headerCorrespondence: ['modifier', 'description']
+        }
     },
     defaultIgnores: true,
     plugins: [
@@ -28,13 +28,13 @@ const configuration = {
                     }
 
                     return [true];
-                },
-            },
-        },
+                }
+            }
+        }
     ],
     rules: {
-        'commit-message-match': [2, 'always'],
-    },
+        'commit-message-match': [2, 'always']
+    }
 };
 
 export default configuration;
