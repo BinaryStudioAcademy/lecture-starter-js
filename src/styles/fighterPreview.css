@@ -11,3 +11,34 @@
 .fighter-preview___left {
   align-items: flex-start;
 }
+
+.fighter-preview___left img, .fighter-preview___right img {
+  max-height: 11rem;
+}
+
+.fighter-preview___left, .fighter-preview___right {
+  width: 40%;
+}
+
+.fighter-details-wrapper {
+  background-color: #ffdfa7;
+  border: 5px solid #ca9650;
+  padding: 10px;
+  text-align: center;
+}
+
+.fighter-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.icon {
+  height: 1.1rem;
+  width: 1.1rem;
+  display: inline;
+}
+
+.fighter-detail-cell {
+  width: 20px;
+}

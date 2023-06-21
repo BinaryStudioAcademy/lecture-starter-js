@@ -9,9 +9,20 @@
     },
     "plugins": ["prettier"],
     "rules": {
-        "prettier/prettier": "error",
+        "prettier/prettier": ["error", {
+            "endOfLine": "auto"
+        }],
         "arrow-body-style": 0,
+        "no-use-before-define": [
+            "error",
+            {
+                "functions": false,
+                "classes": false,
+                "variables": false
+            }
+        ],
         "no-console": ["error", { "allow": ["warn", "error"] }],
+        "no-restricted-globals": ["error", "event", "fdescribe"],
         "no-underscore-dangle": 0,
         "no-useless-catch": 0
     },

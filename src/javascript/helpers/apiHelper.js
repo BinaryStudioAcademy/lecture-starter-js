@@ -9,11 +9,13 @@ const SECURITY_HEADERS = {
          * To test the application against the real dataset set useMockAPI=false.
          * But to test the application you don't need to extend the GitHub REST API rate limit to 5000 requests with the token
          */
-        // authorization: 'token %github_token%'
+        authorization: 'token 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'
     }
 };
+const responsePromise = fetch(BASE_API_URL, SECURITY_HEADERS);
+responsePromise.then(response => response.json());
 
-const useMockAPI = true;
+const useMockAPI = false;
 
 function getFighterById(endpoint) {
     const start = endpoint.lastIndexOf('/');

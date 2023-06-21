@@ -47,7 +47,7 @@
   margin: 0 30px;
 }
 
-.arena___health-indicator {
+.arena___health-indicator, .arena___fighter-rage {
   width: 100%;
   height: 25px;
   border: 2px solid;
@@ -60,4 +60,89 @@
   height: 100%;
   width: 100%;
   background-color: #ebd759;
+}
+
+.arena___shields-container {
+  top: 40%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+}
+
+.arena___right-shield, .arena___left-shield {
+  visibility: hidden;
+}
+
+.shield-img {
+  height: 25vh;
+}
+
+.arena___punches-container, .arena___fireballs-container {
+  top: 40%;
+  left: 20%;
+  width: 60%;
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+}
+
+.punch-img{
+  height: 7vh;
+}
+
+.arena___right-punch, .arena___left-punch, .arena___right-fireball, .arena___left-fireball {
+  opacity: 0;
+}
+
+.arena___left-punch-show, .arena___left-fireball-show {
+  opacity: 1;
+  animation-name: moveToTheRight;
+  animation-duration: 0.3s;
+}
+.arena___right-punch-show, .arena___right-fireball-show {
+  opacity: 1;
+  animation-name: moveToTheLeft;
+  animation-duration: 0.3s;
+}
+
+.arena___left-punch img {
+  transform: rotate(90deg) scaleX(-1);
+}
+
+.arena___right-punch img {
+  transform: rotate(-90deg);
+}
+
+.arena___right-fireball img, .arena___right-crit-indicator img {
+  transform: scaleX(-1);
+}
+
+.arena___fireballs-container .fireball-img {
+  height: 25vh;
+}
+
+.arena___crit-signals-container {
+  position: absolute;
+  top: 2%;
+  left: 5%;
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+}
+
+.arena___crit-signals-container .fireball-img {
+  height: 10vh;
+}
+
+@keyframes moveToTheRight {
+  0% {opacity: 1;margin-left:0}
+  90% {opacity: 0.9;margin-left:23vw}
+  100% {opacity: 0;margin-left:20vw}
+}
+
+@keyframes moveToTheLeft {
+  0% {opacity: 1;margin-right:0}
+  90% {opacity: 0.9;margin-right:23vw}
+  100% {opacity: 0;margin-right:25vw}
 }
