@@ -1,4 +1,4 @@
-export default function createElement({ tagName, className, attributes = {} }) {
+export default function createElement({ tagName, className, attributes = {}, innerText }) {
     const element = document.createElement(tagName);
 
     if (className) {
@@ -7,6 +7,8 @@ export default function createElement({ tagName, className, attributes = {} }) {
     }
 
     Object.keys(attributes).forEach(key => element.setAttribute(key, attributes[key]));
-
+    if (innerText) {
+        element.innerText = innerText;
+    }
     return element;
 }

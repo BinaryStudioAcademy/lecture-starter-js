@@ -1,8 +1,8 @@
 {
-  "_id": "1",
-  "name": "Ryu",
-  "health": 45, 
-  "attack": 4, 
-  "defense": 3,
-  "source": "https://media.giphy.com/media/kdHa4JvihB2gM/giphy.gif"
+    "_id": "1",
+    "name": "Ryu",
+    "health": 45,
+    "attack": 4,
+    "defense": 3,
+    "source": "https://media.giphy.com/media/kdHa4JvihB2gM/giphy.gif"
 }

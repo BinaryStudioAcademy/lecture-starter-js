@@ -1,8 +1,8 @@
 {
-  "_id": "4",
-  "name": "Zangief",
-  "health": 60, 
-  "attack": 4, 
-  "defense": 1,
-  "source": "https://media1.giphy.com/media/nlbIvY9K0jfAA/source.gif"
+    "_id": "4",
+    "name": "Zangief",
+    "health": 60,
+    "attack": 4,
+    "defense": 1,
+    "source": "https://media1.giphy.com/media/nlbIvY9K0jfAA/source.gif"
 }

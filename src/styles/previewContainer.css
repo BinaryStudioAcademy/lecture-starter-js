@@ -1,36 +1,36 @@
 .preview-container___root {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 40px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px;
 }
 
 .preview-container___versus-block {
-  display: flex;
-  flex-direction: column;
-  margin: 0 50px;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 50px;
+    align-items: center;
+    justify-content: center;
 }
 
 .preview-container___versus-img {
-  width: 130px;
+    width: 130px;
 }
 
 .preview-container___fight-btn {
-  padding: 8px 35px;
-  justify-self: right;
-  text-align: center;
-  background: #ba0303;
-  margin: 40px 0;
-  color: #f8f9f4;
-  font-size: 22px;
-  cursor: pointer;
-  font-weight: bold;
-  box-shadow: 6px 6px 7px 0px rgba(0, 0, 0, 0.75);
+    padding: 8px 35px;
+    justify-self: right;
+    text-align: center;
+    background: #ba0303;
+    margin: 40px 0;
+    color: #f8f9f4;
+    font-size: 22px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 6px 6px 7px 0px rgba(0, 0, 0, 0.75);
 }
 
 .preview-container___fight-btn.disabled {
-  opacity: 0;
+    opacity: 0;
 }
