@@ -16,7 +16,7 @@
         "lint": "eslint --ext .js .",
         "lint:fix": "npm run lint -- --fix"
     },
-    "author": "",
+    "author": "Binary Devs",
     "license": "ISC",
     "devDependencies": {
         "commitlint": "^17.6.5",
