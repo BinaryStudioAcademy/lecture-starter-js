@@ -9,14 +9,14 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "setup": "npm install && npx simple-git-hooks",
+        "setup": "npm i && npx simple-git-hooks",
         "dev": "vite --host",
         "build": "vite build",
         "preview": "vite preview",
         "lint": "eslint --ext .js .",
         "lint:fix": "npm run lint -- --fix"
     },
-    "author": "Binary Devs",
+    "author": "Binary Studio",
     "license": "ISC",
     "devDependencies": {
         "commitlint": "^17.6.5",

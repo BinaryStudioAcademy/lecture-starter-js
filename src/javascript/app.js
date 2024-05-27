@@ -6,7 +6,7 @@ class App {
 
     static loadingElement = document.getElementById('loading-overlay');
 
-    static async startApp() {
+    static async startApplication() {
         try {
             App.loadingElement.style.visibility = 'visible';
 
@@ -16,7 +16,7 @@ class App {
             App.rootElement.appendChild(fightersElement);
         } catch (error) {
             console.warn(error);
-            App.rootElement.innerText = 'Failed to load data';
+            App.rootElement.innerText = 'Failed to fetch the data';
         } finally {
             App.loadingElement.style.visibility = 'hidden';
         }
