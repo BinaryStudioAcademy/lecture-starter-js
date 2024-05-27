@@ -16,7 +16,7 @@ class App {
             App.rootElement.appendChild(fightersElement);
         } catch (error) {
             console.warn(error);
-            App.rootElement.innerText = 'Failed to fetch the data';
+            App.rootElement.innerText = 'Failed to load data';
         } finally {
             App.loadingElement.style.visibility = 'hidden';
         }
