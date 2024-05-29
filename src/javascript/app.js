@@ -6,7 +6,7 @@ class App {
 
     static loadingElement = document.getElementById('loading-overlay');
 
-    static async startApp() {
+    static async startApplication() {
         try {
             App.loadingElement.style.visibility = 'visible';
 
