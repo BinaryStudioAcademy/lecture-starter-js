@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 .fighter-preview___root {
   display: flex;
   flex-direction: column;
@@ -5,9 +7,35 @@
 }
 
 .fighter-preview___right {
-  align-items: flex-end;
+  align-items: center
 }
 
 .fighter-preview___left {
-  align-items: flex-start;
+  align-items: center;
+}
+
+.fighter-preview___img {
+  width: 100x;
+  height: 200px;
+}
+
+.fighter-preview__mirror-img {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.fighter-preview___data-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #6b6b6b;
+  color: #ffffff;
+  border-radius: 5px;
+  margin-top: 10px;
+  width: 300px;
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
