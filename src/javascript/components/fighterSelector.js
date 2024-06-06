@@ -55,7 +55,7 @@ function renderSelectedFighters(selectedFighters) {
 
 export function createFightersSelector() {
     let selectedFighters = [];
-
+    // extra: add confirm player button to be able to choose again (confirmed boolean into selected fihters :))
     return async (event, fighterId) => {
         const fighter = await getFighterInfo(fighterId);
         const [playerOne, playerTwo] = selectedFighters;

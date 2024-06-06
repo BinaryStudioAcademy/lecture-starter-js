@@ -1,5 +1,8 @@
 import createElement from '../helpers/domHelper';
+import { fight } from './fight';
 import { createFighterImage } from './fighterPreview';
+import versusImg from '../../../resources/versus.png';
+import showWinnerModal from './modal/winner';
 
 function createFighter(fighter, position) {
     const imgElement = createFighterImage(fighter);
@@ -42,11 +45,17 @@ function createHealthIndicator(fighter, position) {
 
 function createHealthIndicators(leftFighter, rightFighter) {
     const healthIndicators = createElement({ tagName: 'div', className: 'arena___fight-status' });
-    const versusSign = createElement({ tagName: 'div', className: 'arena___versus-sign' });
+    const versusSignContainer = createElement({ tagName: 'div', className: 'arena___versus-sign' });
+    const versusImage = createElement({
+        tagName: 'img',
+        className: 'preview-container___versus-img',
+        attributes: { src: versusImg }
+    });
+    versusSignContainer.append(versusImage);
     const leftFighterIndicator = createHealthIndicator(leftFighter, 'left');
     const rightFighterIndicator = createHealthIndicator(rightFighter, 'right');
 
-    healthIndicators.append(leftFighterIndicator, versusSign, rightFighterIndicator);
+    healthIndicators.append(leftFighterIndicator, versusSignContainer, rightFighterIndicator);
     return healthIndicators;
 }
 
@@ -59,7 +68,7 @@ function createArena(selectedFighters) {
     return arena;
 }
 
-export default function renderArena(selectedFighters) {
+export default async function renderArena(selectedFighters) {
     const root = document.getElementById('root');
     const arena = createArena(selectedFighters);
 
@@ -69,4 +78,12 @@ export default function renderArena(selectedFighters) {
     // todo:
     // - start the fight
     // - when fight is finished show winner
+    fight(...selectedFighters)
+        .then(winner => {
+            showWinnerModal(winner);
+        })
+        .catch(err => {
+            console.warn(err);
+            throw err;
+        });
 }
