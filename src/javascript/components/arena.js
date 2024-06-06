@@ -1,5 +1,7 @@
 import createElement from '../helpers/domHelper';
 import { createFighterImage } from './fighterPreview';
+import { fight } from './fight';
+import showWinnerModal from './modal/winner';
 
 function createFighter(fighter, position) {
     const imgElement = createFighterImage(fighter);
@@ -69,4 +71,25 @@ export default function renderArena(selectedFighters) {
     // todo:
     // - start the fight
     // - when fight is finished show winner
+
+    const fightElement = createElement({ tagName: 'div', className: 'arena__fight_element' });
+    const imageFightElement = createElement({
+        tagName: 'img',
+        className: 'fight__image',
+        attributes: { src: 'resources/fight.png' }
+    });
+
+    const [firstFighter, secondFighter] = selectedFighters;
+
+    setTimeout(() => {
+        fightElement.append(imageFightElement);
+        root.append(fightElement);
+    }, 1000);
+
+    setTimeout(() => {
+        fightElement.remove();
+        fight(firstFighter, secondFighter).then(winner => {
+            showWinnerModal(winner);
+        });
+    }, 2000);
 }
