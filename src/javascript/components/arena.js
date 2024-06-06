@@ -61,9 +61,38 @@ function createArena(selectedFighters) {
     return arena;
 }
 
+function createFightElement() {
+    const fightElement = createElement({ tagName: 'div', className: 'arena__fight_element' });
+    const imageFightElement = createElement({
+        tagName: 'img',
+        className: 'fight__image',
+        attributes: { src: 'resources/fight.png' }
+    });
+
+    fightElement.append(imageFightElement);
+    return fightElement;
+}
+
+function startFight(firstFighter, secondFighter, fightElement) {
+    const FIGHT_START_DELAY = 1000;
+    const FIGHT_END_DELAY = 2000;
+
+    setTimeout(() => {
+        document.getElementById('root').append(fightElement);
+    }, FIGHT_START_DELAY);
+
+    setTimeout(() => {
+        fightElement.remove();
+        fight(firstFighter, secondFighter).then(winner => {
+            showWinnerModal(winner);
+        });
+    }, FIGHT_END_DELAY);
+}
+
 export default function renderArena(selectedFighters) {
     const root = document.getElementById('root');
     const arena = createArena(selectedFighters);
+    const fightElement = createFightElement();
 
     root.innerHTML = '';
     root.append(arena);
@@ -72,24 +101,7 @@ export default function renderArena(selectedFighters) {
     // - start the fight
     // - when fight is finished show winner
 
-    const fightElement = createElement({ tagName: 'div', className: 'arena__fight_element' });
-    const imageFightElement = createElement({
-        tagName: 'img',
-        className: 'fight__image',
-        attributes: { src: 'resources/fight.png' }
-    });
-
     const [firstFighter, secondFighter] = selectedFighters;
 
-    setTimeout(() => {
-        fightElement.append(imageFightElement);
-        root.append(fightElement);
-    }, 1000);
-
-    setTimeout(() => {
-        fightElement.remove();
-        fight(firstFighter, secondFighter).then(winner => {
-            showWinnerModal(winner);
-        });
-    }, 2000);
+    startFight(firstFighter, secondFighter, fightElement);
 }
