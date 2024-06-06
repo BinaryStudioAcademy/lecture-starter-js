@@ -34,3 +34,13 @@
 .preview-container___fight-btn.disabled {
   opacity: 0;
 }
+
+.preview_figther_wrap {
+  width: 13em;
+  gap: 2px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  text-align: center;
+  font-size: larger;
+}
