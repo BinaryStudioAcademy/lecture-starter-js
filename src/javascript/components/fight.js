@@ -16,23 +16,37 @@ export function getDamage(attacker, defender) {
     // return damage
     const hitPower = getHitPower(attacker);
     const blockPower = getBlockPower(defender);
-    const damage = hitPower - blockPower;
+    const damage = defender.block ? 0 : hitPower - blockPower;
     return damage > 0 ? damage : 0;
 }
 
 function criticalAttack(attacker, defender) {
     const criticalHit = attacker.attack * 2;
     const blockPower = getBlockPower(defender);
-    const damage = criticalHit - blockPower;
+    const damage = defender.block ? 0 : criticalHit - blockPower;
     return damage;
+}
+
+function calculateHealthIndicatorValue(initialHealth, health) {
+    return (health / initialHealth) * 100;
+}
+
+function changeHealthIndicatorValue(indicator, value) {
+    if (indicator.includes('left')) {
+        const element = document.getElementById('left-fighter-indicator');
+        element.style.width = `${value}%`;
+    } else if (indicator.includes('right')) {
+        const element = document.getElementById('right-fighter-indicator');
+        element.style.width = `${value}%`;
+    }
 }
 
 export async function fight(firstFighter, secondFighter) {
     return new Promise(resolve => {
         // resolve the promise with the winner when fight is over
 
-        const playerOne = { ...firstFighter, block: false };
-        const playerTwo = { ...secondFighter, block: false };
+        const playerOne = { ...firstFighter, initialHealth: firstFighter.health, block: false, indicator: 'left' };
+        const playerTwo = { ...secondFighter, initialHealth: secondFighter.health, block: false, indicator: 'right' };
         let lastCriticalPlayerOneStrikeTime = 0;
         let lastCriticalPlayerTwoStrikeTime = 0;
         const playerOneCriticalStrikeKeys = Object.fromEntries(
@@ -46,7 +60,11 @@ export async function fight(firstFighter, secondFighter) {
             if (event.code === controls.PlayerOneAttack) {
                 // first fighter hits second fighter
                 const damage = playerOne.block ? 0 : getDamage(playerOne, playerTwo);
-                playerTwo.health -= playerTwo.block ? 0 : damage;
+                playerTwo.health -= damage;
+                changeHealthIndicatorValue(
+                    playerTwo.indicator,
+                    calculateHealthIndicatorValue(playerTwo.initialHealth, playerTwo.health)
+                );
             } else if (event.code in playerOneCriticalStrikeKeys) {
                 playerOneCriticalStrikeKeys[event.code] = true;
 
@@ -55,7 +73,11 @@ export async function fight(firstFighter, secondFighter) {
 
                 if (isCriticalStrike && timeNow - lastCriticalPlayerOneStrikeTime > 10000) {
                     const damage = criticalAttack(playerOne, playerTwo);
-                    playerTwo.health -= playerTwo.block ? 0 : damage;
+                    playerTwo.health -= damage;
+                    changeHealthIndicatorValue(
+                        playerTwo.indicator,
+                        calculateHealthIndicatorValue(playerTwo.initialHealth, playerTwo.health)
+                    );
                     lastCriticalPlayerOneStrikeTime = timeNow;
                 }
             } else if (event.code === controls.PlayerOneBlock) {
@@ -65,7 +87,11 @@ export async function fight(firstFighter, secondFighter) {
             if (event.code === controls.PlayerTwoAttack) {
                 // second fighter hits first fighter
                 const damage = playerTwo.block ? 0 : getDamage(playerTwo, playerOne);
-                playerOne.health -= playerOne.block ? 0 : damage;
+                playerOne.health -= damage;
+                changeHealthIndicatorValue(
+                    playerOne.indicator,
+                    calculateHealthIndicatorValue(playerOne.initialHealth, playerOne.health)
+                );
             } else if (event.code in playerTwoCriticalStrikeKeys) {
                 playerTwoCriticalStrikeKeys[event.code] = true;
 
@@ -74,7 +100,11 @@ export async function fight(firstFighter, secondFighter) {
 
                 if (isCriticalStrike && timeNow - lastCriticalPlayerTwoStrikeTime > 10000) {
                     const damage = criticalAttack(playerOne, playerTwo);
-                    playerTwo.health -= playerTwo.block ? 0 : damage;
+                    playerOne.health -= damage;
+                    changeHealthIndicatorValue(
+                        playerOne.indicator,
+                        calculateHealthIndicatorValue(playerOne.initialHealth, playerOne.health)
+                    );
                     lastCriticalPlayerTwoStrikeTime = timeNow;
                 }
             } else if (event.code === controls.PlayerTwoBlock) {
