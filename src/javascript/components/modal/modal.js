@@ -16,9 +16,9 @@ function createHeader(title, onClose) {
     titleElement.innerText = title;
     closeButton.innerText = '×';
 
-    const close = e => {
+    const close = () => {
         hideModal();
-        onClose(e);
+        onClose();
     };
     closeButton.addEventListener('click', close);
     headerElement.append(titleElement, closeButton);
