@@ -30,8 +30,10 @@ function createModal({ title, bodyElement, onClose }) {
     const layer = createElement({ tagName: 'div', className: 'modal-layer' });
     const modalContainer = createElement({ tagName: 'div', className: 'modal-root' });
     const header = createHeader(title, onClose);
+    const bodyContainer = createElement({ tagName: 'div', className: 'modal-body' });
+    bodyContainer.innerHTML = `<p>${bodyElement}</p>`;
 
-    modalContainer.append(header, bodyElement);
+    modalContainer.append(header, bodyContainer);
     layer.append(modalContainer);
 
     return layer;
