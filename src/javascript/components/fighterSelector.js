@@ -2,11 +2,24 @@ import createElement from '../helpers/domHelper';
 import renderArena from './arena';
 import versusImg from '../../../resources/versus.png';
 import { createFighterPreview } from './fighterPreview';
+import fighterService from '../services/fightersService';
 
 const fighterDetailsMap = new Map();
 
 export async function getFighterInfo(fighterId) {
     // get fighter info from fighterDetailsMap or from service and write it to fighterDetailsMap
+    if (fighterDetailsMap.has(fighterId)) {
+        return fighterDetailsMap.get(fighterId);
+    }
+
+    try {
+        const fighterDetails = await fighterService.getFighterDetails(fighterId);
+        fighterDetailsMap.set(fighterId, fighterDetails);
+        return fighterDetails;
+    } catch (error) {
+        console.warn(error);
+        return null;
+    }
 }
 
 function startFight(selectedFighters) {
