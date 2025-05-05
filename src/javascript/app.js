@@ -4,7 +4,7 @@ import fighterService from './services/fightersService';
 class App {
     static rootElement = document.getElementById('root');
 
-    static loadingElement = document.getElementById('loading-overlay');
+    static loadingElement = document.getElementById('loading-backdrop');
 
     static async startApplication() {
         try {
