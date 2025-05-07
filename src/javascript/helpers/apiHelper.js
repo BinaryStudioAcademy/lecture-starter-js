@@ -25,7 +25,7 @@ function getFighterById(endpoint) {
 async function fakeCallApi(endpoint) {
     const response = endpoint === 'fighters.json' ? fighters : getFighterById(endpoint);
     return new Promise((resolve, reject) => {
-        setTimeout(() => (response ? resolve(response) : reject(Error('Failed to load'))), 500);
+        setTimeout(() => (response ? resolve(response) : reject(Error('Failed to load data'))), 500);
     });
 }
 
@@ -36,7 +36,7 @@ export default async function callApi(endpoint, method = 'GET') {
     return useMockAPI
         ? fakeCallApi(endpoint)
         : fetch(url, options)
-              .then(response => (response.ok ? response.json() : Promise.reject(Error('Failed to load'))))
+              .then(response => (response.ok ? response.json() : Promise.reject(Error('Failed to load data'))))
               .then(result => JSON.parse(atob(result.content)))
               .catch(error => {
                   throw error;
