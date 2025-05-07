@@ -3,34 +3,103 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 40px;
+  margin: 30px;
+  position: relative;
+  overflow: hidden;
 }
 
 .preview-container___versus-block {
   display: flex;
   flex-direction: column;
-  margin: 0 50px;
+  margin: 0 40px;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 2;
 }
 
 .preview-container___versus-img {
-  width: 130px;
+  width: 150px;
+  filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.7));
+  animation: pulse 1.5s infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.7));
+  }
+  to {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.9));
+  }
 }
 
 .preview-container___fight-btn {
-  padding: 8px 35px;
-  justify-self: right;
+  padding: 12px 40px;
   text-align: center;
-  background: #ba0303;
-  margin: 40px 0;
-  color: #f8f9f4;
-  font-size: 22px;
+  background: linear-gradient(to bottom, #ff0000, #ba0303, #800000);
+  margin: 35px 0;
+  color: #ffffff;
+  font-size: 26px;
   cursor: pointer;
   font-weight: bold;
-  box-shadow: 6px 6px 7px 0px rgba(0, 0, 0, 0.75);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  position: relative;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.preview-container___fight-btn:before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 7px;
+  animation: borderGlow 2s infinite alternate;
+}
+
+@keyframes borderGlow {
+  0% {
+    opacity: 0;
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 0.7;
+    filter: blur(10px);
+  }
+}
+
+.preview-container___fight-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.5),
+              inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.preview-container___fight-btn:hover:before {
+  opacity: 0.7;
+}
+
+.preview-container___fight-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .preview-container___fight-btn.disabled {
   opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
 }
