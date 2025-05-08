@@ -39,7 +39,6 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
   -webkit-text-stroke: 1px #fff;
   text-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
   z-index: 2;
@@ -78,7 +77,6 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
   -webkit-text-stroke: 0.5px #fff;
   letter-spacing: 0.5px;
 }

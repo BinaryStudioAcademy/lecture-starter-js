@@ -1,5 +1,5 @@
 .modal-layer {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
@@ -9,6 +9,7 @@
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(5px);
+  z-index: 1000;
 }
 
 .modal-root {
@@ -19,6 +20,9 @@
   background-color: #1a1a2e;
   box-shadow: 0 0 30px rgba(255, 204, 0, 0.2), 0 0 60px rgba(255, 0, 0, 0.4);  
   overflow: hidden; 
+  max-width: 90%;
+  width: auto;
+  max-height: 80vh;
 }
 
 .modal-header {
@@ -35,7 +39,6 @@
 .modal-body {
   padding: 1rem;
 }
-
 
 .close-btn {
   font-size: 1.8rem;
