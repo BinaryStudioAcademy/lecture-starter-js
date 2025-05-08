@@ -36,11 +36,7 @@ export function getDamage(attacker, defender, isBlocked) {
         damage = getHitPower(attacker);
     }
 
-    if (damage < 0) {
-        return 0;
-    }
-
-    return damage;
+    return Math.max(0, damage);
 }
 
 let firstFighterBlockActive = false;
@@ -86,22 +82,16 @@ export async function fight(firstFighter, secondFighter) {
                 case PlayerOneAttack:
                     if (!secondFighterBlockActive && !e.repeat) {
                         const damage = getDamage(firstFighter, secondFighter, secondFighterBlockActive);
-                        if (secondFighterHealth - damage < 0) {
-                            secondFighterHealth -= secondFighterHealth;
-                        } else {
-                            secondFighterHealth -= damage;
-                        }
+
+                        secondFighterHealth = Math.max(0, secondFighterHealth - damage);
                     }
 
                     break;
                 case PlayerTwoAttack:
                     if (!firstFighterBlockActive && !e.repeat) {
                         const damage = getDamage(secondFighter, firstFighter, firstFighterBlockActive);
-                        if (firstFighterHealth - damage < 0) {
-                            firstFighterHealth -= firstFighterHealth;
-                        } else {
-                            firstFighterHealth -= damage;
-                        }
+
+                        firstFighterHealth = Math.max(0, firstFighterHealth - damage);
                     }
                     break;
 
@@ -144,10 +134,10 @@ export async function fight(firstFighter, secondFighter) {
                 default:
                     break;
             }
-            const leftHealhBarWidth = (firstFighterHealth / firstFighter.health) * 100;
+            const leftHealthBarWidth = (firstFighterHealth / firstFighter.health) * 100;
             const rightHealhBarWidth = (secondFighterHealth / secondFighter.health) * 100;
 
-            leftFighterIndicator.style.width = `${leftHealhBarWidth}%`;
+            leftFighterIndicator.style.width = `${leftHealthBarWidth}%`;
             rightFighterIndicator.style.width = `${rightHealhBarWidth}%`;
 
             if (firstFighterHealth <= 0) {
