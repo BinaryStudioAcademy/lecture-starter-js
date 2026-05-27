@@ -2,6 +2,7 @@ import callApi from '../helpers/apiHelper';
 
 class FighterService {
     #endpoint = 'fighters.json';
+    #detailsEndpoint = id => `details/fighter/${id}.json`;
 
     async getFighters() {
         try {
@@ -12,9 +13,17 @@ class FighterService {
         }
     }
 
+    async getFighterInfo(id) {
+        if (!id) {
+            throw Error('Fighter id is required');
+        }
+
+        const endpoint = this.#detailsEndpoint(id);
+        return await callApi(endpoint);
+    }
+
     async getFighterDetails(id) {
-        // todo: implement this method
-        // endpoint - `details/fighter/${id}.json`;
+        return await this.getFighterInfo(id);
     }
 }
 

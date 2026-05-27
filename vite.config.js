@@ -5,6 +5,9 @@ const config = () => {
         server: {
             host: 'localhost',
             port: 7800
+        },
+        test: {
+            environment: 'node'
         }
     });
 };

@@ -61,3 +61,45 @@
   width: 100%;
   background-color: #ebd759;
 }
+
+.arena___controls-hint {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  padding: 12px 14px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #f8f9f4;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.85);
+}
+
+.arena___controls-title {
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.arena___controls-row {
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.arena___quit-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 20px;
+  background: #ba0303;
+  color: #f8f9f4;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 4px 4px 6px 0 rgba(0, 0, 0, 0.75);
+}
+
+.arena___quit-btn:hover {
+  background: #8f0202;
+}
